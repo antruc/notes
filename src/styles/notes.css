@@ -1,0 +1,45 @@
+@media only screen and (max-device-width: 736px) {
+  #notepad {
+    flex-direction: column;
+    align-items: center;
+  }
+  .note-card {
+    width: 300px;
+    margin: 8px 0 15px 0;
+  }
+}
+@media only screen and (min-device-width: 737px) and (max-device-width: 1011px) {
+  #notepad {
+    justify-content: center;
+  }
+  .note-card {
+    width: 320px;
+    margin: 8px 20px 8px 20px;
+  }
+}
+@media only screen and (min-device-width: 1012px) {
+  #notepad {
+    justify-content: center;
+  }
+  .note-card {
+    width: 320px;
+    margin: 17px;
+    cursor: pointer;
+  }
+}
+#notepad {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 30px;
+}
+.note-card {
+  font-size: 20px;
+  list-style: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 10px 15px 10px 15px;
+  box-shadow:
+    0 -1px 3px rgba(0, 0, 0, 0.15),
+    2px 3px 5px rgba(0, 0, 0, 0.25);
+}

@@ -6,7 +6,7 @@ import { saveAs } from 'file-saver'
 import copyToClipboard from './copyToClipboard.js'
 
 const handler = {
-  onClick() {
+  onClick(event) {
     let matchNew = event.target.matches('#newnote')
     let matchAdd = event.target.matches('#addnote')
     let dataNote = event.target.dataset.note
@@ -105,7 +105,7 @@ const handler = {
       saveAs(blob, 'notes.json')
     }
   },
-  onChange() {
+  onChange(event) {
     let matchImport = event.target.matches('#importdata')
     if (matchImport) {
       let inputImport = document.querySelector('#importdata')

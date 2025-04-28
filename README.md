@@ -4,4 +4,10 @@
 
 Simple note-taking web app
 
-https://antruc.github.io/notes
+# Build
+```
+npm install
+npm run build
+```
+
+https://antruc.dev/notes

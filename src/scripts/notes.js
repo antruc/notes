@@ -4,9 +4,16 @@ import { html, render } from './renderer.js'
 
 const notes = {
   textLength(value) {
-    return value.substring(0, 19).length === 19
-      ? value.substring(0, 19) + '...'
-      : value.substring(0, 19)
+    try {
+      // Truncate the text from the beginning to 19 characters and then added an ellipsis if necessary
+      return value.substring(0, 19).length === 19
+        ? value.substring(0, 19) + '...'
+        : value.substring(0, 19)
+    } catch (error) {
+      if (error) {
+        return
+      }
+    }
   },
   note(id, value) {
     return html`<li class="note-card" data-note="${id}">
@@ -50,13 +57,16 @@ const notes = {
   },
   load() {
     if (localStorage.length === 0) {
-      storage.saveData()
+      this.reset()
     } else if (storage.data().length > 2) {
       storage.init()
       let data = storage.db
       let notepadElm = document.querySelector('#notepad')
       data.forEach((i) => render(this.note(i.id, i.value), notepadElm))
     }
+  },
+  reset() {
+    storage.saveData()
   }
 }
 

@@ -113,9 +113,24 @@ const handler = {
       let reader = new FileReader()
       reader.readAsText(file)
       reader.onload = () => {
-        notes.importNotes(reader.result)
-        removeElm('#templatebackup')
-        toast.show('Notes updated')
+        if (file.type === 'application/json') {
+          if (reader.result.includes('{')) {
+            try {
+              notes.importNotes(reader.result)
+              removeElm('#templatebackup')
+              toast.show('Notes updated')
+            } catch (error) {
+              if (error) {
+                toast.show('Error with database')
+                notes.reset()
+              }
+            }
+          } else {
+            toast.show('Error with database')
+          }
+        } else {
+          toast.show('File not compatible')
+        }
       }
     }
   }

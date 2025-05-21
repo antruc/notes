@@ -12,6 +12,7 @@ const storage = {
   },
   saveItem(id, value) {
     let data = this.db
+    // Find the index of the item with the given id.
     let result = data.findIndex((i) => {
       return i.id === parseInt(id)
     })
@@ -19,8 +20,10 @@ const storage = {
     this.saveData()
   },
   removeItem(id) {
+    // Filter out the item with the given id
     let updatedData = this.db.filter((i) => i.id !== parseInt(id))
     this.db = []
+    // Add the remaining items to the database
     updatedData.forEach((i) => this.db.push(i))
     this.saveData()
   },

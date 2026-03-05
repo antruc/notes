@@ -9,7 +9,7 @@
   height: 64px;
   background-color: #ffffff;
   background-image: url('./img/icon-new.svg');
-  background-size: 30px;
+  background-size: 24px;
   border-radius: 50%;
   position: fixed;
   z-index: 2;
@@ -52,20 +52,20 @@
   background-image: url('./img/icon-back.svg');
 }
 .button {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   background-color: rgba(0, 0, 0, 0);
-  background-size: 36px;
+  background-size: 30px;
 }
 .button-note {
   position: fixed;
   top: 13px;
 }
 .button-copy {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   background-color: rgba(0, 0, 0, 0);
-  background-size: 30px;
+  background-size: 24px;
 }
 input[type='file'] {
   opacity: 0;

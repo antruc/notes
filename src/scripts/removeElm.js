@@ -1,6 +1,4 @@
 export default function removeElm(id) {
-  let elm = document.querySelector(id)
-  elm.remove()
-  let notesElm = document.querySelector('#templatenotes')
-  notesElm.classList.remove('is-hidden')
+  document.querySelector(id)?.remove()
+  document.querySelector('#templatenotes')?.classList.remove('is-hidden')
 }

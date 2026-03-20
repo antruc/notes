@@ -4,16 +4,8 @@ import { html, render } from './renderer.js'
 
 const notes = {
   textLength(value) {
-    try {
-      // Truncate the text from the beginning to 19 characters and then added an ellipsis if necessary
-      return value.substring(0, 19).length === 19
-        ? value.substring(0, 19) + '...'
-        : value.substring(0, 19)
-    } catch (error) {
-      if (error) {
-        return
-      }
-    }
+    // Truncate the text to 19 characters and then added an ellipsis if necessary
+    return value.length >= 19 ? value.substring(0, 19) + '...' : value.substring(0, 19)
   },
   note(id, value) {
     return html`<li class="note-card" data-note="${id}">
@@ -21,51 +13,45 @@ const notes = {
     </li>`
   },
   addNote(value) {
-    let dateId = Date.now()
+    const dateId = Date.now()
     storage.addItem(dateId, value)
-    let notepadElm = document.querySelector('#notepad')
-    render(this.note(dateId, value), notepadElm)
+    render(this.note(dateId, value), document.querySelector('#notepad'))
   },
   saveNote(id, value) {
     storage.saveItem(id, value)
-    let noteElm = document.querySelector(`[data-note="${id}"]`)
-    noteElm.textContent = this.textLength(value)
+    document.querySelector(`[data-note="${id}"]`).textContent =
+      this.textLength(value)
   },
   removeNote(id) {
     storage.removeItem(id)
-    let noteElm = document.querySelector(`[data-note="${id}"]`)
-    noteElm.remove()
+    document.querySelector(`[data-note="${id}"]`).remove()
   },
   exportNotes() {
     return storage.data()
   },
   importNotes(data) {
     storage.importData(data)
-    let noteElm = document.querySelector('[data-note]')
-    if (noteElm) {
-      let notesElm = document.querySelectorAll('[data-note]')
-      notesElm.forEach((i) => i.remove())
-    }
+    if (!document.querySelector('[data-note]')) return
+    document.querySelectorAll('[data-note]').forEach((i) => i.remove())
     this.load()
   },
   noteValue(id) {
-    let data = storage.db
-    let result = data.find((note) => {
-      return note.id === parseInt(id)
+    const result = storage.db.find((note) => {
+      return note.id === Number(id)
     })
     return result.value
   },
   load() {
     if (localStorage.length === 0) {
-      this.reset()
+      this.init()
     } else if (storage.data().length > 2) {
       storage.init()
-      let data = storage.db
-      let notepadElm = document.querySelector('#notepad')
-      data.forEach((i) => render(this.note(i.id, i.value), notepadElm))
+      storage.db.forEach((i) =>
+        render(this.note(i.id, i.value), document.querySelector('#notepad'))
+      )
     }
   },
-  reset() {
+  init() {
     storage.saveData()
   }
 }

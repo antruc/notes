@@ -6,6 +6,7 @@ import open from 'open'
 process.env.NODE_ENV = process.argv[2] // eslint-disable-line
 
 async function copyAndWrite(outdir, outfile) {
+  await fs.emptyDir(outdir)
   await fs.copy('public', outdir)
 
   const html = await fs.readFile(`${outdir}/index.html`, 'utf8')
@@ -35,7 +36,7 @@ if (process.env.NODE_ENV === 'development') { // eslint-disable-line
   let ctx = await esbuild.context({
     entryPoints: ['src/app.js'],
     bundle: true,
-    target: ['es6'],
+    target: ['esnext'],
     external: ['*.svg'],
     define: { 'window.IS_DEVELOPMENT': 'true' },
     outdir: 'www'
@@ -57,7 +58,7 @@ if (process.env.NODE_ENV === 'development') { // eslint-disable-line
     entryPoints: ['src/app.js'],
     bundle: true,
     minify: true,
-    target: ['es6'],
+    target: ['esnext'],
     external: ['*.svg'],
     define: { 'window.IS_DEVELOPMENT': 'false' },
     outfile: 'dist/app.min.js'

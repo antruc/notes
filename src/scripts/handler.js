@@ -133,6 +133,10 @@ const handler = {
         }
       }
     }
+  },
+  init() {
+    document.addEventListener('click', this.onClick)
+    document.addEventListener('change', this.onChange)
   }
 }
 

@@ -1,5 +1,3 @@
-import '../styles/template.css'
-import '../styles/buttons.css'
 import { html, render } from './renderer.js'
 
 const template = {

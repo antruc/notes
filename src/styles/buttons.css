@@ -8,7 +8,7 @@
   width: 64px;
   height: 64px;
   background-color: #ffffff;
-  background-image: url('./img/icon-new.svg');
+  background-image: url('/img/icon-new.svg');
   background-size: 24px;
   border-radius: 50%;
   position: fixed;
@@ -20,36 +20,36 @@
     5px 8px 10px rgba(0, 0, 0, 0.25);
 }
 #locknote {
-  background-image: url('./img/icon-lock.svg');
+  background-image: url('/img/icon-lock.svg');
 }
 #locknote.is-unlock {
-  background-image: url('./img/icon-unlock.svg');
+  background-image: url('/img/icon-unlock.svg');
 }
 #addnote,
 #savenote {
-  background-image: url('./img/icon-save.svg');
+  background-image: url('/img/icon-save.svg');
 }
 #copynote {
-  background-image: url('./img/icon-copy.svg');
+  background-image: url('/img/icon-copy.svg');
 }
 #removenote {
-  background-image: url('./img/icon-remove.svg');
+  background-image: url('/img/icon-remove.svg');
 }
 #opensettings {
-  background-image: url('./img/icon-settings.svg');
+  background-image: url('/img/icon-settings.svg');
 }
 #exportnotes,
 #downloadnote {
-  background-image: url('./img/icon-export.svg');
+  background-image: url('/img/icon-export.svg');
 }
 #importnotes {
-  background-image: url('./img/icon-import.svg');
+  background-image: url('/img/icon-import.svg');
 }
 #closetemplate {
-  background-image: url('./img/icon-close.svg');
+  background-image: url('/img/icon-close.svg');
 }
 #backtemplate {
-  background-image: url('./img/icon-back.svg');
+  background-image: url('/img/icon-back.svg');
 }
 .button {
   width: 30px;

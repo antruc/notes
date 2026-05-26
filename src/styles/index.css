@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import '@fontsource-variable/roboto-mono';
+
 ::selection {
   background: #3f51b5;
   color: #ffffff;

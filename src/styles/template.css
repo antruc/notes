@@ -59,7 +59,7 @@
   width: 100%;
   height: 58px;
   background-color: inherit;
-  border-style: solid;
+  border-bottom-style: solid;
 }
 .container-title {
   display: flex;

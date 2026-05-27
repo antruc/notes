@@ -7,7 +7,7 @@ const template = {
       html`<section id="templatenotes">
         <ul id="notepad"></ul>
         <div class="container-settings">
-          <button id="opensettings" class="icon button hn hn-cog-solid"></button>
+          <button id="opensettings" class="icon button button-settings hn hn-cog-solid"></button>
         </div>
         <button id="newnote" class="icon hn hn-plus-solid"></button>
       </section>`,
@@ -48,16 +48,16 @@ const template = {
           ></button>
           <button
             id="locknote"
-            class="icon right-180 button-note button hn hn-lock-solid"
+            class="icon right-170 button-note button hn hn-lock-solid"
           ></button>
           <button
             id="savenote"
-            class="icon right-140 button-note button hn hn-save-solid"
+            class="icon right-130 button-note button hn hn-save-solid"
             data-save="${id}"
           ></button>
           <button
             id="downloadnote"
-            class="icon right-95 button-note button hn hn-download-solid"
+            class="icon right-90 button-note button hn hn-download-solid"
             data-download="${id}"
           ></button>
           <button
@@ -95,13 +95,13 @@ ${value}</textarea
         </div>
         <div class="container-backup">
           <div class="container-title">
-            <strong>Export Notes</strong>
+            Export Notes
             <div class="container-title-buttons">
               <button id="exportnotes" class="icon button hn hn-download-solid"></button>
             </div>
           </div>
           <div class="container-title">
-            <strong>Import Notes</strong>
+            Import Notes
             <div class="container-title-buttons">
               <div id="importnotes" class="button hn hn-upload-solid">
                 <input id="importdata" class="button" type="file" />

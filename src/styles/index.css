@@ -1,12 +1,11 @@
-@import '@fontsource/jersey-25';
-
 ::selection {
   background: #3f51b5;
   color: #fefefe;
 }
 body {
   background-color: #fefefe;
-  font-family: 'Jersey 25';
+  font-family: 'Roboto Mono Variable', monospace;
+  font-weight: 400;
   color: #161616;
   margin: 0;
   user-select: none;

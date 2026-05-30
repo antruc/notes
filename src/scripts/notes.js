@@ -4,9 +4,9 @@ import { html, render } from './renderer.js'
 const notes = {
   textLength(value) {
     // Truncate the text to 19 characters and then added an ellipsis if necessary
-    return value.length >= 19
-      ? value.substring(0, 19) + '...'
-      : value.substring(0, 19)
+    return value.length >= 15
+      ? value.substring(0, 15) + '...'
+      : value.substring(0, 15)
   },
   note(id, value) {
     return html`<li class="note-card" data-note="${id}">

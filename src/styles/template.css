@@ -63,7 +63,7 @@
 .container-title {
   display: flex;
   width: 280px;
-  font-size: 25px;
+  font-size: 24px;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 40px;
@@ -80,8 +80,9 @@
   height: calc(100% - 54px);
   background: inherit;
   font-family: 'Roboto Mono Variable', monospace;
+  font-weight: 400;
   color: inherit;
-  font-size: 25px;
+  font-size: 24px;
   box-sizing: border-box;
   outline: none;
   border: none;

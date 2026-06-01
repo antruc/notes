@@ -49,17 +49,18 @@ const handler = {
     }
     if (matchLock) {
       let textAreaView = document.querySelector('#areaview')
+      let buttonLock = document.querySelector('#locknote')
       if (textAreaView.hasAttribute('readonly')) {
         textAreaView.removeAttribute('readonly')
+        buttonLock.classList.add('hn-unlock-solid')
         let textLenght = textAreaView.value.length
         textAreaView.focus()
         textAreaView.setSelectionRange(textLenght, textLenght)
         textAreaView.scrollTop = textAreaView.scrollHeight
       } else {
         textAreaView.setAttribute('readonly', true)
+        buttonLock.classList.remove('hn-unlock-solid')
       }
-      let buttonLock = document.querySelector('#locknote')
-      buttonLock.classList.toggle('is-unlock')
     }
     if (dataSave) {
       let textAreaView = document.querySelector('#areaview')

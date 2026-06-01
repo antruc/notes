@@ -1,6 +1,6 @@
-import handler from './scripts/handler.js'
-import template from './scripts/template.js'
-import notes from './scripts/notes.js'
+import handler from './js/handler.js'
+import template from './js/template.js'
+import notes from './js/notes.js'
 
 function app() {
   handler.init()

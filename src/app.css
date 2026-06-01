@@ -1,7 +1,7 @@
-@import './styles/buttons.css';
-@import './styles/index.css';
-@import './styles/notes.css';
-@import './styles/template.css';
-@import './styles/toast.css';
+@import './css/buttons.css';
+@import './css/index.css';
+@import './css/notes.css';
+@import './css/template.css';
+@import './css/toast.css';
 @import '@hackernoon/pixel-icon-library/fonts/iconfont.css';
 @import '@fontsource-variable/roboto-mono';

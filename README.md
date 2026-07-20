@@ -6,8 +6,8 @@ Simple note-taking web app
 
 # Build
 ```
-npm install
-npm run build
+bun install
+bun run build
 ```
 
 https://antruc.dev/notes

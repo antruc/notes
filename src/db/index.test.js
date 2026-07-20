@@ -16,7 +16,8 @@ test('import merges valid notes and drops junk', async () => {
   )
 
   expect(count).toBe(2)
-  expect(await getNotes()).toEqual([
+  const notes = (await getNotes()).sort((a, b) => a.id - b.id)
+  expect(notes).toEqual([
     { id: 1, value: 'overwritten' },
     { id: 2, value: 'new' }
   ])

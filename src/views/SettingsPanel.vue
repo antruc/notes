@@ -87,3 +87,88 @@ async function wipe() {
   emit('close')
 }
 </script>
+
+<style scoped>
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg);
+  outline: none;
+  border: none;
+}
+.button {
+  background-color: rgba(0, 0, 0, 0);
+}
+.container-buttons {
+  width: 100%;
+  height: 52px;
+  background-color: inherit;
+}
+.button-note {
+  position: fixed;
+  top: 13px;
+}
+.right-10 {
+  right: 10px;
+}
+@keyframes slide-top {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+#templatebackup {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  animation: slide-top 0.25s;
+}
+.container-backup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+.container-title {
+  display: flex;
+  width: 280px;
+  font-size: 24px;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.container-title-buttons {
+  display: flex;
+  width: 280px;
+  justify-content: flex-end;
+  position: absolute;
+  z-index: 4;
+}
+.import-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--fg);
+}
+input[type='file'] {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (min-device-width: 1012px) {
+  .icon,
+  input[type='file'] {
+    cursor: pointer;
+  }
+}
+</style>

@@ -163,3 +163,82 @@ async function remove() {
   done('Note deleted')
 }
 </script>
+
+<style scoped>
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg);
+  outline: none;
+  border: none;
+}
+.button {
+  background-color: rgba(0, 0, 0, 0);
+}
+.container-buttons {
+  width: 100%;
+  height: 52px;
+  background-color: inherit;
+}
+.button-note {
+  position: fixed;
+  top: 13px;
+}
+@media only screen and (min-device-width: 1012px) {
+  .icon {
+    cursor: pointer;
+  }
+}
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#templateeditor {
+  animation: slide-right 0.25s;
+}
+.container-app {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  position: fixed;
+  z-index: 3;
+  top: 0;
+}
+.right-10 {
+  right: 10px;
+}
+.right-50 {
+  right: 50px;
+}
+.right-90 {
+  right: 90px;
+}
+.right-130 {
+  right: 130px;
+}
+.right-170 {
+  right: 170px;
+}
+.left-10 {
+  left: 10px;
+}
+.area-note {
+  width: 100%;
+  height: calc(100% - 54px);
+  background: inherit;
+  font-family: 'Roboto Mono Variable', monospace;
+  font-weight: 400;
+  color: inherit;
+  font-size: 24px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  resize: none;
+  padding: 30px 30px 35px 30px;
+}
+</style>

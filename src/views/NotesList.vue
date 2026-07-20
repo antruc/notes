@@ -1,0 +1,122 @@
+<template>
+  <section id="templatenotes">
+    <ul id="notepad">
+      <li
+        v-for="n in notes"
+        :key="n.id"
+        class="note-card"
+        @click="$emit('open', n)"
+      >
+        {{ preview(n.value) }}
+      </li>
+    </ul>
+    <div class="container-settings">
+      <button
+        id="opensettings"
+        class="icon button"
+        aria-label="Settings"
+        @click="$emit('settings')"
+      >
+        <Settings :size="26" />
+      </button>
+    </div>
+    <button
+      id="newnote"
+      class="icon"
+      aria-label="New note"
+      @click="$emit('new')"
+    >
+      <Plus :size="28" />
+    </button>
+  </section>
+</template>
+
+<script setup>
+import { Plus, Settings } from '@lucide/vue'
+
+defineProps({
+  notes: { type: Array, default: () => [] }
+})
+defineEmits(['open', 'new', 'settings'])
+
+function preview(value) {
+  return value.length >= 15 ? value.substring(0, 15) + '...' : value
+}
+</script>
+
+<style scoped>
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg);
+  outline: none;
+  border: none;
+}
+.button {
+  background-color: rgba(0, 0, 0, 0);
+}
+#templatenotes {
+  margin-bottom: 35px;
+}
+#notepad {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 30px;
+}
+.note-card {
+  font-size: 24px;
+  list-style: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 10px 15px 10px 15px;
+}
+.container-settings {
+  display: flex;
+  justify-content: center;
+}
+#newnote {
+  width: 56px;
+  height: 56px;
+  background-color: var(--bg);
+  border-radius: 4px;
+  position: fixed;
+  z-index: 2;
+  right: 20px;
+  bottom: 20px;
+}
+
+@media only screen and (max-device-width: 736px) {
+  #notepad {
+    flex-direction: column;
+    align-items: center;
+  }
+  .note-card {
+    width: 300px;
+    margin: 8px 0 15px 0;
+  }
+}
+@media only screen and (min-device-width: 737px) and (max-device-width: 1011px) {
+  #notepad {
+    justify-content: center;
+  }
+  .note-card {
+    width: 320px;
+    margin: 8px 20px 8px 20px;
+  }
+}
+@media only screen and (min-device-width: 1012px) {
+  #notepad {
+    justify-content: center;
+  }
+  .note-card {
+    width: 320px;
+    margin: 17px;
+    cursor: pointer;
+  }
+  .icon {
+    cursor: pointer;
+  }
+}
+</style>

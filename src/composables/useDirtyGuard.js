@@ -15,6 +15,9 @@ export function confirmLeaveIfDirty() {
 // Warn on tab close / reload while a form is dirty
 export function installUnloadGuard() {
   window.addEventListener('beforeunload', (e) => {
-    if (isDirty.value) e.preventDefault()
+    if (isDirty.value) {
+      e.preventDefault()
+      e.returnValue = '' // legacy browsers need this to show the prompt
+    }
   })
 }

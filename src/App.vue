@@ -1,24 +1,11 @@
 <template>
-  <section v-if="view === 'list'" id="templatenotes">
-    <ul id="notepad">
-      <li v-for="n in notes" :key="n.id" class="note-card" @click="openNote(n)">
-        {{ preview(n.value) }}
-      </li>
-    </ul>
-    <div class="container-settings">
-      <button
-        id="opensettings"
-        class="icon button"
-        aria-label="Settings"
-        @click="view = 'settings'"
-      >
-        <Settings :size="26" />
-      </button>
-    </div>
-    <button id="newnote" class="icon" aria-label="New note" @click="openNew">
-      <Plus :size="28" />
-    </button>
-  </section>
+  <NotesList
+    v-if="view === 'list'"
+    :notes="notes"
+    @open="openNote"
+    @new="openNew"
+    @settings="view = 'settings'"
+  />
 
   <NoteEditor
     v-else-if="view === 'editor'"
@@ -34,16 +21,15 @@
     @changed="reload"
   />
 
-  <div v-if="toastMsg" class="container-toast">
-    <div class="toast">{{ toastMsg }}</div>
-  </div>
+  <Toast :message="toastMsg" />
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { Plus, Settings } from '@lucide/vue'
+import NotesList from './views/NotesList.vue'
 import NoteEditor from './views/NoteEditor.vue'
 import SettingsPanel from './views/SettingsPanel.vue'
+import Toast from './components/Toast.vue'
 import { getNotes } from './db'
 
 const view = ref('list')
@@ -51,10 +37,6 @@ const notes = ref([])
 const current = ref(null)
 const toastMsg = ref('')
 let toastTimer
-
-function preview(value) {
-  return value.length >= 15 ? value.substring(0, 15) + '...' : value
-}
 
 async function reload() {
   notes.value = await getNotes()

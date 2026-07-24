@@ -68,7 +68,7 @@
       v-model="value"
       class="area-note"
       placeholder="Write note..."
-      :readonly="locked"
+      :disabled="locked"
     ></textarea>
   </section>
 </template>

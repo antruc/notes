@@ -39,8 +39,15 @@ defineProps({
 })
 defineEmits(['open', 'new', 'settings'])
 
+const segmenter = new Intl.Segmenter(undefined, {
+  granularity: 'grapheme'
+})
+
 function preview(value) {
-  return value.length >= 15 ? value.substring(0, 15) + '...' : value
+  // Split by grapheme cluster to avoid breaking emoji or combined characters
+  const chars = [...segmenter.segment(value)].map((s) => s.segment)
+
+  return chars.length > 15 ? chars.slice(0, 15).join('') + '...' : value
 }
 </script>
 

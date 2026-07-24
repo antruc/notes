@@ -63,17 +63,16 @@ async function exportAll() {
 async function importFile(event) {
   const file = event.target.files[0]
   if (!file) return
-  if (file.type !== 'application/json') {
-    emit('toast', 'File not compatible')
-    return
-  }
   try {
     await importNotes(await file.text())
     emit('changed')
     emit('toast', 'Notes updated')
     emit('close')
   } catch {
-    emit('toast', 'Error with database')
+    emit('toast', 'Invalid backup file')
+  } finally {
+    // Reset so picking the same file again fires change
+    event.target.value = ''
   }
 }
 
